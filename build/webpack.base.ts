@@ -32,7 +32,8 @@ const baseConfig: Configuration = {
         rules: [
             {
                 test: /.(ts|tsx)$/, // 匹配.ts, tsx文件
-                use: 'babel-loader'
+                use: 'babel-loader',
+                exclude: [path.join(__dirname, 'node_modules')]
             },
             {
                 test: /\.s[ac]ss$/i, //匹配 css 文件
@@ -54,6 +55,18 @@ const baseConfig: Configuration = {
 
                 ],
             },
+            {
+                test: /\.(png|jpg|gif|svg)$/i,
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 10 * 1024
+                    }
+                },
+                generator: {
+                    filename: 'static/images/[hash][ext][query]'
+                }
+            }
         ],
     },
     resolve: {
