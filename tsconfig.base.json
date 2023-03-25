@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2018",
+    "module": "esnext",
+    "baseUrl": ".",
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "removeComments": false,
+    "typeRoots": ["./typings/*.d.ts"],
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
