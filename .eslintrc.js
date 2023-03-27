@@ -77,6 +77,7 @@ module.exports = {
     // "react-hooks/rules-of-hooks": "error",
     // "react-hooks/exhaustive-deps": "off"
   },
+
   settings: {
     react: {
       version: 'detect'

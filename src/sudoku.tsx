@@ -1,8 +1,7 @@
-import sudoku from './Sudoku.scss'
-import image from './image.png'
+// import sudoku from './Sudoku.scss'
 import { Fragment, useState } from 'react'
 
-const sum = Array.from({ length: 9 }, (v, k) => k)
+// const sum = Array.from({ length: 9 }, (v, k) => k)
 
 function SudokuItem() {
   const [count, setCounts] = useState('')
@@ -10,11 +9,11 @@ function SudokuItem() {
     setCounts(e.target.value)
   }
 
-  const item = sum.map(s => (
-    <div className={sudoku.item} key={s}>
-      {' '}
-    </div>
-  ))
+  // const item = sum.map(s => (
+  //   <div className={sudoku.item} key={s}>
+  //     {' '}
+  //   </div>
+  // ))
   return (
     <Fragment>
       {/* <img src={image} /> */}
