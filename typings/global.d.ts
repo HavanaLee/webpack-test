@@ -49,3 +49,6 @@ declare module '*.png' {
     export default ref;
 }
 
+declare module 'thread-loader' {
+    const warmup: <T>(opt: T, loaders: string[]) => void
+}

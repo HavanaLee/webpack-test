@@ -27,7 +27,7 @@ const devConfig: Configuration = merge(baseConfig, {
             directory: path.join(__dirname, "../public"), // 托管静态资源public文件夹
         },
         headers: { "Access-Control-Allow-Origin": "*" },
-    },
-});
+    }
+})
 
 export default devConfig;
