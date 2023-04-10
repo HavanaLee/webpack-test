@@ -18,6 +18,7 @@ const styleLoadersArray = [
 ]
 
 const baseConfig: Configuration = {
+  target: process.env.NODE_ENV === 'development' ? 'web' : 'browserslist',
   entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
   // 打包出口文件
   output: {
@@ -88,7 +89,6 @@ const baseConfig: Configuration = {
         minifyCSS: true // 压缩折叠css
       }
     }),
-
     new WebpackBar()
   ],
   cache: {

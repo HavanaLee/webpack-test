@@ -9,6 +9,7 @@ function Loading() {
 const Home = lazy(() => import('@/home'))
 const About = lazy(() => import('@/about'))
 const App = lazy(() => import('@/app'))
+const Main = lazy(() => import('@/main'))
 
 function withUseRoutes(comp: ReactElement) {
   return <Suspense fallback={<Loading></Loading>}>{comp}</Suspense>
@@ -16,19 +17,25 @@ function withUseRoutes(comp: ReactElement) {
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Navigate to={'/app'}></Navigate>
+    element: <Navigate to={'/home'}></Navigate>
   },
   {
-    path: 'app',
-    element: withUseRoutes(<App />)
-  },
-  {
-    path: 'home',
-    element: withUseRoutes(<Home />)
-  },
-  {
-    path: 'about',
-    element: withUseRoutes(<About />)
+    path: '/',
+    element: <Main />,
+    children: [
+      {
+        path: 'app',
+        element: withUseRoutes(<App />)
+      },
+      {
+        path: 'home',
+        element: withUseRoutes(<Home />)
+      },
+      {
+        path: 'about',
+        element: withUseRoutes(<About />)
+      }
+    ]
   }
 ]
 
