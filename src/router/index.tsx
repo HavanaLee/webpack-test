@@ -1,6 +1,7 @@
-import { lazy, ReactElement, Suspense } from 'react'
+import { lazy, ReactElement, startTransition, Suspense } from 'react'
 import { Navigate } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
+import Result404 from '@/home/404'
 
 function Loading() {
   return <h2>🌀 Loading...</h2>
@@ -11,7 +12,7 @@ const About = lazy(() => import('@/about'))
 const App = lazy(() => import('@/app'))
 const Main = lazy(() => import('@/main'))
 
-function withUseRoutes(comp: ReactElement) {
+function withSuspence(comp: ReactElement) {
   return <Suspense fallback={<Loading></Loading>}>{comp}</Suspense>
 }
 const routes: RouteObject[] = [
@@ -25,17 +26,21 @@ const routes: RouteObject[] = [
     children: [
       {
         path: 'app',
-        element: withUseRoutes(<App />)
+        element: withSuspence(<App />)
       },
       {
         path: 'home',
-        element: withUseRoutes(<Home />)
+        element: withSuspence(<Home />)
       },
       {
         path: 'about',
-        element: withUseRoutes(<About />)
+        element: withSuspence(<About />)
       }
     ]
+  },
+  {
+    path: '*',
+    element: <Result404 />
   }
 ]
 
